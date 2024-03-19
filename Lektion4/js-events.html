@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS events</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body class="container">
+    <h1>JS events</h1>
+    <button class="btn btn-success" onclick="showMessage()">Visa ett meddelande
+
+    </button>
+    <div id="demo"></div>
+
+    <script>
+
+        function showMessage(){
+            document.getElementById('demo').innerHTML = "<h2> Hello events <h2>";
+        }
+    </script>
+
+</body>
+</html>

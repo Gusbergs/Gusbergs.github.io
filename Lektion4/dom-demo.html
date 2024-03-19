@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom-demo</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body>
+    <h1 id="one">DOM demo</h1>
+
+    <script>
+        const heading = document.getElementById('one');
+        let headingg = document.getElementById('one');
+        heading.innerHTML = "Hello from Javascript";
+        heading.textContent = "ändring"
+        heading.style.backgroundColor = "black"
+
+        heading.classList.add("text-danger")
+
+    </script>
+    
+</body>
+</html>

@@ -52,6 +52,8 @@
     <script src="js/scripts.js"></script>
     <!-- Script to fetch and display products -->
     <script>
+
+        
         fetch('https://fakestoreapi.com/products')
             .then(res => res.json())
             .then(products => {
@@ -60,25 +62,42 @@
                     const card = document.createElement('div');
                     card.classList.add('col', 'mb-5');
                     card.innerHTML = `
-                        <div class="card h-100">
-                            <img class="card-img-top" src="${product.image}" alt="${product.title}" />
+                        <div id = "card" class="card h-100">
+                            <img id = productImg class="card-img-top" src="${product.image}" alt="${product.title}" />
                             <div class="card-body p-4">
                                 <div class="text-center">
-                                    <h5 class="fw-bolder">${product.title}</h5>
-                                    $${product.price}
+                                    <h5 id = "productName" class="fw-bolder">${product.title}</h5>
+                                      <p id = "productPrice" class= "text-center">${product.price}</p>
                                 </div>
                             </div>
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <div class="text-center">
-                                    <a class="btn btn-outline-dark mt-auto" href="beställningsformulär.html">Order</a>
+                                    <button class="btn btn-outline-dark mt-auto order-btn" 
+                                    data-product-name="${product.title}"
+                                    data-product-price = "${product.price}"
+                                    data-product-pic = "${product.image}">
+                                    Order</button>
                                 </div>
                             </div>
                         </div>
                     `;
                     container.appendChild(card);
+
+                    // Add click event listener to the "Order" button in each card
+                    const orderButton = card.querySelector('.order-btn');
+                    orderButton.addEventListener('click', function() {
+                    const productName = this.getAttribute('data-product-name');
+                    const productPrice = this.getAttribute('data-product-price');
+                    const productImg = this.getAttribute('data-product-pic');
+                    // Redirect to the beställningsformulär.html page with the product name as a URL parameter
+                    window.location.href = `beställningsformulär.html?productName=${encodeURIComponent(productName)}&productPrice=${encodeURIComponent(productPrice)}&productImg=${encodeURIComponent(productImg)}`;
                 });
-            })
-            .catch(error => console.log('Error fetching products:', error));
+            });
+        })
+        .catch(error => console.log('Error fetching products:', error));
+    
+
+        
     </script>
 </body>
 </html>

@@ -81,8 +81,41 @@
     </div>
 <br>
     <input type="submit" class="button form-control" value="Köp">
+<br>
+    
 </form>
+<div id = 'product' 
+style="
+display: grid; 
+grid-template-columns: repeat(2, 1fr); 
+background-color: black; 
+color: white;
+border-radius: 20px;
+padding: 10px;
+margin-top: 20px;
+margin-left: 200px;
+margin-right: 200px;
+margin-bottom: 20px;
+float: left;">
+</div>
 
+<script src = "functions.js"></script>
+<script>
+
+    // Populate the form fields with product information
+    const urlParams = new URLSearchParams(window.location.search);
+    const productName = urlParams.get('productName');
+    const productPrice = urlParams.get('productPrice');
+    const productImg = urlParams.get('productImg');
+        // Populate the product field with the product name
+    document.getElementById('product').innerHTML = 
+    `<img src = "${productImg}" style= "width: 100px; heigth: 100px; margin: auto" alt = "${productName}" >
+    <div style = "display: grid; grid-template-columns: repeat(2, 1fr);">
+    <h5>ProductName: </h5>
+    <h5>"${productName}"</h5>
+    <h5>ProductPrice: </h5>
+    <h5>$${productPrice}</h5></div>`;
+</script>
 
 </body>
 </html>

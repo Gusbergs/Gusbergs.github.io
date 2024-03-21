@@ -3,74 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Confirmation Page</title>
     <link href="startbootstrap-shop-homepage-gh-pages/css/styles.css" rel="stylesheet" />
+    <script>
+        function displayFormData() {
+            
+            clearWarnings();
 
+           
+            var name = document.getElementById('name').value;
+            var phone = document.getElementById('phone').value;
+            var email = document.getElementById('email').value;
+            var address = document.getElementById('address').value;
+            var zip = document.getElementById('zip').value;
+            var locality = document.getElementById('locality').value;
+
+            
+            var isValid = true;
+
+            if (name.length < 2 || name.length > 50) {
+                showWarning('name', 'Namnet måste vara minst 2 tecken och max 50 tecken långt.');
+                isValid = false;
+            }
+            if (!email.includes('@') || email.length > 50) {
+                showWarning('email', 'E-postadressen måste innehålla @ och får vara max 50 tecken lång.');
+                isValid = false;
+            }
+            if (phone.length < 2 || phone.length > 50) {
+                showWarning('phone', 'Telefonnummer måste vara på korrekt format (123-456-78-91) och får vara max 50 tecken långt.');
+                isValid = false;
+            }
+            if (address.length < 2 || address.length > 50) {
+                showWarning('address', 'Gatuadressen måste vara minst 2 tecken och max 50 tecken lång.');
+                isValid = false;
+            }
+            if (!/^\d{5}$/.test(zip)) {
+                showWarning('zip', 'Postnummer måste vara exakt 5 siffror.');
+                isValid = false;
+            }
+            if (locality.length < 2 || locality.length > 50) {
+                showWarning('locality', 'Orten måste vara minst 2 tecken och max 50 tecken lång.');
+                isValid = false;
+            }
+
+            if (isValid) {
+               
+                var formDataHTML = `
+                    <h1>Köpbekräftelse</h1>
+                    <div>
+                        <h2>Tack för ditt köp!</h2>
+                        <ul>
+                            <li><strong>Name:</strong> ${name}</li>
+                            <li><strong>Phone Number:</strong> ${phone}</li>
+                            <li><strong>Email:</strong> ${email}</li>
+                            <li><strong>Delivery Address:</strong> ${address}</li>
+                            <li><strong>Zip Code:</strong> ${zip}</li>
+                            <li><strong>Locality:</strong> ${locality}</li>
+                        </ul>
+                    </div>`;
+                
+                document.body.innerHTML = formDataHTML;
+            }
+        }
+
+        function showWarning(fieldId, message) {
+            var field = document.getElementById(fieldId);
+            var warningElement = document.createElement('span');
+            warningElement.className = 'warning';
+            warningElement.textContent = message;
+            field.parentNode.appendChild(warningElement);
+        }
+
+        function clearWarnings() {
+            var warnings = document.querySelectorAll('.warning');
+            warnings.forEach(function(warning) {
+                warning.parentNode.removeChild(warning);
+            });
+        }
+    </script>
+    <style>
+        .warning {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+</head>
 <body>
-    
     <h1>Beställningsformulär</h1>
-<form action="">
-    <div>
-        <label for="name">
-            Namn
-        </label>
-        <br>
-        <input type="text" id="name" placeholder="Förnamn Efternamn" required class="form-control">
-    </div>
-    
-    <br>
+    <form>
+        <div>
+            <label for="name">Namn</label><br>
+            <input type="text" id="name" name="name" placeholder="Förnamn Efternamn" required class="form-control">
+        </div><br>
+        
+        <div>
+            <label for="phone">Telefon Nummer</label><br>
+            <input type="tel" id="phone" name="phone" placeholder="123 456 78 91" required class="form-control">
+        </div><br>
 
-    <div>
-        <label for="phone">
-            Telefon Nummer
-        </label>
-        <br>
-        <input type="number" id="number" placeholder="123 456 78 91" required class="form-control">
-    </div>
-    <br>
+        <div>
+            <label for="email">Email</label><br>
+            <input type="email" id="email" name="email" placeholder="name@exs.com" required class="form-control">
+        </div><br>
 
-    <div>
-        <label for="email">
-            Email
-        </label>
-        <br>
-        <input type="email" id="email" placeholder="name@exs.com" required class="form-control">
-    </div>
+        <div>
+            <label for="address">Leverans address</label><br>
+            <input id="address" name="address" placeholder="Väg 1" required class="form-control">
+        </div><br>
 
-    <br>
+        <div>
+            <label for="zip">Postnummer</label><br>
+            <input id="zip" name="zip" placeholder="12345" required class="form-control">
+        </div><br>
 
-    <div>
+        <div>
+            <label for="locality">Ort</label><br>
+            <input id="locality" name="locality" placeholder="abc" required class="form-control">
+        </div><br>
 
-        <label for="address">
-            Leverans address
-        </label>
-        <br>
-        <input id="address" placeholder="Väg 1" required class="form-control">
-    </div>
-<br>
-    <div>
-
-        <label for="zip">
-            Postnummer
-        </label>
-        <br>
-        <input id="zip" placeholder="12345" required class="form-control">
-    </div>
-    <br>
-    <div>
-
-        <label for="locality">
-            Ort
-        </label>
-        <br>
-        <input id="locality" placeholder="abc" required class="form-control">
-    </div>
-<br>
-<div class="text-center">
-    <input type="submit" class="btn btn-outline-primary" value="Köp">
-</div>
-</form>
-
-
+        <div class="text-center">
+            <button type="button" class="btn btn-outline-primary" onclick="displayFormData()">Köp</button>
+        </div>
+    </form>
 </body>
 </html>

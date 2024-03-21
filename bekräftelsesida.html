@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <link href="startbootstrap-shop-homepage-gh-pages/css/styles.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Order Confirmation</h1>
+
+    <div id="customer-info">
+        <!-- Customer information will be displayed here -->
+    </div>
+
+    <div id="product-info">
+        <!-- Product information will be displayed here -->
+    </div>
+
+    <script>
+        // Retrieve customer information from query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name');
+        const phone = urlParams.get('phone');
+        const email = urlParams.get('email');
+        const address = urlParams.get('address');
+        const zip = urlParams.get('zip');
+        const locality = urlParams.get('locality');
+
+        // Retrieve product information from local storage
+        const product = JSON.parse(localStorage.getItem('selectedProduct'));
+
+        // Display customer information
+        const customerInfoDiv = document.getElementById('customer-info');
+        customerInfoDiv.innerHTML = `
+            <h2>Customer Information</h2>
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Phone:</strong> ${phone}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Address:</strong> ${address}, ${zip} ${locality}</p>
+        `;
+
+        // Display product information
+        const productInfoDiv = document.getElementById('product-info');
+        productInfoDiv.innerHTML = `
+            <h2>Product Information</h2>
+            <p><strong>Title:</strong> ${product.title}</p>
+            <p><strong>Price:</strong> $${product.price}</p>
+            <img src="${product.image}" alt="${product.title}" style="max-width: 200px;">
+        `;
+    </script>
+</body>
+</html>

@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beställningsformulär</title>
-    <link rel="icon" type="image/x-icon" href="image.png">
+    <link rel="icon" type="image/x-icon" href="image2.png">
     <link href="startbootstrap-shop-homepage-gh-pages/css/styles.css" rel="stylesheet" />
-    <link rel="icon" type="image/x-icon" href="image.png">
 <body>
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -24,66 +23,64 @@
                 </div>
             </nav>
             <h1 style="text-align: center;">Beställningsformulär</h1>
-    <form action="">
-    <div>
-        <label for="name">
-            Namn
-        </label>
+    <form id="contactForm" action="">
+        <div>
+            <label for="name">Namn</label>
+            <br>
+            <input type="text" id="name" placeholder="Förnamn Efternamn" required class="form-control">
+            <span id="nameError" class="error-message"></span>
+        </div>
+        
         <br>
-        <input type="text" id="name" placeholder="Förnamn Efternamn" required class="form-control">
-    </div>
-    
-    <br>
 
-    <div>
-        <label for="phone">
-            Telefon Nummer
-        </label>
+        <div>
+            <label for="phone">Telefon Nummer</label>
+            <br>
+            <input type="text" id="number" placeholder="123 456 78 91" required class="form-control">
+            <span id="numberError" class="error-message"></span>
+
+        </div>
         <br>
-        <input type="number" id="number" placeholder="123 456 78 91" required class="form-control">
-    </div>
-    <br>
 
-    <div>
-        <label for="email">
-            Email
-        </label>
+        <div>
+            <label for="email">Email</label>
+            <br>
+            <input type="email" id="email" placeholder="name@exs.com" required class="form-control">
+            <span id="emailError" class="error-message"></span>
+
+        </div>
+
         <br>
-        <input type="email" id="email" placeholder="name@exs.com" required class="form-control">
-    </div>
 
-    <br>
+        <div>
+            <label for="address">Leverans address</label>
+            <br>
+            <input id="address" placeholder="Väg 1" required class="form-control">
+            <span id="addressError" class="error-message"></span>
 
-    <div>
-
-        <label for="address">
-            Leverans address
-        </label>
+        </div>
         <br>
-        <input id="address" placeholder="Väg 1" required class="form-control">
-    </div>
-<br>
-    <div>
-
-        <label for="zip">
-            Postnummer
-        </label>
+        
+        <div>
+            <label for="zip">Postnummer</label>
+            <br>
+            <input type="number" input id="zip" placeholder="12345" required class="form-control">
+            <span id="zipError" class="error-message"></span>
+        </div>
         <br>
-        <input id="zip" placeholder="12345" required class="form-control">
-    </div>
-    <br>
-    <div>
+        
+        <div>
+            <label for="locality">Ort</label>
+            <br>
+            <input id="locality" placeholder="abc" required class="form-control">
+            <span id="localityError" class="error-message"></span>
 
-        <label for="locality">
-            Ort
-        </label>
+        </div>
         <br>
-        <input id="locality" placeholder="abc" required class="form-control">
-    </div>
-<br>
-    <input type="submit" class="button form-control" value="Köp">
-</form>
+        
+        <button onclick="checkFunc()" class="btn btn-outline-success">KÖP</button>
+    </form>
 
-
+    <script src="startbootstrap-shop-homepage-gh-pages/js/scripts.js"></script>
 </body>
 </html>

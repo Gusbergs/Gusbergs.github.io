@@ -3,86 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dokument</title>
     <link href="startbootstrap-shop-homepage-gh-pages/css/styles.css" rel="stylesheet" />
     <link rel="icon" type="image/x-icon" href="image.png">
+    <style>
+        .flex-container {
+            display: flex;
+            max-width: 100%;
+            margin: 20px auto;
+            align-items: flex-start;
+        }
+
+        .form-container {
+            flex-basis: 50%;
+            padding-right: 20px;
+            padding-left: 40px; /* Ökad vänster padding för textfälten */
+        }
+
+        .image-container {
+            flex-basis: 50%;
+            text-align: center;
+        }
+
+        .image-container img {
+            border-radius: 20px; /* Avrundade hörn på bilden */
+            max-width: 100%;
+            height: auto;
+        }
+
+        input.form-control, .button.form-control {
+            width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
 <body>
-            <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container px-4 px-lg-5">
-                    <a class="navbar-brand" href="index.html">Number1 store</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="index.html">About</a></li>
-                            
-                        </ul>
-                        
-                    </div>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="#!">Number1 store</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Hem</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#!">Om</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <h1 style="text-align: center;">Beställningsformulär</h1>
+    <div class="flex-container">
+        <div class="form-container">
+            <form action="">
+                <div>
+                    <label for="name">Namn</label>
+                    <br>
+                    <input type="text" id="name" placeholder="Förnamn Efternamn" required class="form-control">
                 </div>
-            </nav>
-            <h1 style="text-align: center;">Beställningsformulär</h1>
-    <form action="">
-    <div>
-        <label for="name">
-            Namn
-        </label>
-        <br>
-        <input type="text" id="name" placeholder="Förnamn Efternamn" required class="form-control">
+                
+                <br>
+
+                <div>
+                    <label for="phone">Telefonnummer</label>
+                    <br>
+                    <input type="tel" id="phone" placeholder="123 456 78 91" required class="form-control">
+                </div>
+                
+                <br>
+
+                <div>
+                    <label for="email">Email</label>
+                    <br>
+                    <input type="email" id="email" placeholder="namn@exempel.com" required class="form-control">
+                </div>
+
+                <br>
+
+                <div>
+                    <label for="address">Leveransadress</label>
+                    <br>
+                    <input type="text" id="address" placeholder="Gatuadress 1" required class="form-control">
+                </div>
+                
+                <br>
+
+                <div>
+                    <label for="zip">Postnummer</label>
+                    <br>
+                    <input type="text" id="zip" placeholder="12345" required class="form-control">
+                </div>
+                
+                <br>
+
+                <div>
+                    <label for="locality">Ort</label>
+                    <br>
+                    <input type="text" id="locality" placeholder="Stad" required class="form-control">
+                </div>
+                
+                <br>
+
+                <input type="submit" class="button form-control" value="Skicka beställning">
+            </form>
+        </div>
+        <div class="image-container">
+            <img id="apiImage" src="https://picsum.photos/400" alt="Bild från API" style="border-radius: 20px;">
+        </div>
     </div>
-    
-    <br>
-
-    <div>
-        <label for="phone">
-            Telefon Nummer
-        </label>
-        <br>
-        <input type="number" id="number" placeholder="123 456 78 91" required class="form-control">
-    </div>
-    <br>
-
-    <div>
-        <label for="email">
-            Email
-        </label>
-        <br>
-        <input type="email" id="email" placeholder="name@exs.com" required class="form-control">
-    </div>
-
-    <br>
-
-    <div>
-
-        <label for="address">
-            Leverans address
-        </label>
-        <br>
-        <input id="address" placeholder="Väg 1" required class="form-control">
-    </div>
-<br>
-    <div>
-
-        <label for="zip">
-            Postnummer
-        </label>
-        <br>
-        <input id="zip" placeholder="12345" required class="form-control">
-    </div>
-    <br>
-    <div>
-
-        <label for="locality">
-            Ort
-        </label>
-        <br>
-        <input id="locality" placeholder="abc" required class="form-control">
-    </div>
-<br>
-    <input type="submit" class="button form-control" value="Köp">
-</form>
-
-
 </body>
 </html>

@@ -31,6 +31,23 @@
             height: auto;
         }
 
+        .image-container img {
+            width: 400px;
+            height: 400px;
+            border-radius: 20px;
+            object-fit: cover;
+        }
+
+        .product-price {
+            margin-top: 10px;
+            font-size: 1.5em;
+        }
+
+        .product-title {
+            margin-top: 10px;
+            font-size: 1.5em;
+        }
+
         input.form-control, .button.form-control {
             width: 100%;
             box-sizing: border-box;
@@ -38,7 +55,6 @@
     </style>
 </head>
 <body>
-    <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container px-4 px-lg-5">
             <a class="navbar-brand" href="#!">Number1 store</a>
@@ -107,8 +123,36 @@
             </form>
         </div>
         <div class="image-container">
-            <img id="apiImage" src="https://picsum.photos/400" alt="Bild från API" style="border-radius: 20px;">
+            <img id="apiImage" alt="Bild från API">
+            <div id="productPrice" class="product-price"></div>
+            <div id="productTitle" class="product-title"></div>
+
+
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const queryParams = new URLSearchParams(window.location.search);
+            const productId = queryParams.get('productId');
+
+            if (productId) {
+                fetch(`https://fakestoreapi.com/products/${productId}`)
+                    .then(res => res.json())
+                    .then(product => {
+                        const productImage = document.getElementById('apiImage');
+                        productImage.src = product.image;
+                        productImage.alt = product.title;
+
+                        const productPrice = document.getElementById('productPrice');
+                        productPrice.textContent = `$${product.price}`;
+
+                        const productTitle = document.getElementById('productTitle');
+                        productTitle.textContent = `${product.title}`;
+                    })
+                    .catch(error => console.log('Error fetching product details:', error));
+            }
+        });
+    </script>
 </body>
 </html>

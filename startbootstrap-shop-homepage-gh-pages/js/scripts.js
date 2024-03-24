@@ -16,10 +16,9 @@ i. Gatuadress: Min 2 tecken och Max 50 tecken
 ii. Postnummer: Exakt 5 siffror
 iii. Ort: Min 2 tecken och Max 50 tecken
  */
-/**
- * chackName().checkNr().checkEmail().checkAddress().checkZip().checkOrt()
- */
+
 function checkFunc() {
+    event.preventDefault();
 
     /**
      * 
@@ -36,6 +35,7 @@ function checkFunc() {
         } else {
             document.getElementById('nameError').innerHTML = `
             <div class="alert alert-danger my-2">Du måste ange mellan 2-50 bokstäver</div>`;
+            return;
         }
     /**
      * 
@@ -51,6 +51,7 @@ function checkFunc() {
         } else {
             document.getElementById('numberError').innerHTML = `
             <div class="alert alert-danger my-2">Du måste ange mellan 10-50 tecken</div>`;
+            return;
         }
     
      /**
@@ -67,6 +68,7 @@ function checkFunc() {
         } else {
             document.getElementById('emailError').innerHTML = `
             <div class="alert alert-danger my-2">E-postadressen måste innehålla @ och max 50 tecken</div>`;
+            return;
         }
     
     /**
@@ -83,6 +85,7 @@ function checkFunc() {
         } else {
             document.getElementById('addressError').innerHTML = `
             <div class="alert alert-danger my-2">Addressen måste innehålla mellan 2-50 tecken</div>`;
+            return;
         }
     
     /**
@@ -99,6 +102,7 @@ function checkFunc() {
     } else {
         document.getElementById('zipError').innerHTML = `
         <div class="alert alert-danger my-2">Postnummer måste innehåla exakt 5 siffror</div>`;
+        return;
     }
     
     /**
@@ -112,10 +116,16 @@ function checkFunc() {
     if (localityInput.length >= 2 && localityInput.length <= 50) {
         document.getElementById('localityError').innerHTML = ''; // Clear the error message
         console.log(localityInput);
+        document.getElementById('contactForm').submit();
     } else {
         document.getElementById('localityError').innerHTML = `
         <div class="alert alert-danger my-2">Du måste ange mellan 2-50 tecken</div>`;
+        return;
     }
-    
+
+    function bekräftelse(){
+
+    }
+
     }
     

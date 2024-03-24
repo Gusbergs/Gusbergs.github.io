@@ -83,13 +83,11 @@
                     `;
                     container.appendChild(card);
 
-                    // Add click event listener to the "Order" button in each card
                     const orderButton = card.querySelector('.order-btn');
                     orderButton.addEventListener('click', function() {
                     const productName = this.getAttribute('data-product-name');
                     const productPrice = this.getAttribute('data-product-price');
                     const productImg = this.getAttribute('data-product-pic');
-                    // Redirect to the beställningsformulär.html page with the product name as a URL parameter
                     window.location.href = `beställningsformulär.html?productName=${encodeURIComponent(productName)}&productPrice=${encodeURIComponent(productPrice)}&productImg=${encodeURIComponent(productImg)}`;
                 });
             });

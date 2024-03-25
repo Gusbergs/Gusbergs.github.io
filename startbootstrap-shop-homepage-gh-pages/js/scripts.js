@@ -40,7 +40,7 @@ function checkFunc() {
      * Checking Number here
      * Telefonnummer får innehålla siffror, bindestreck och parenteser. Max 50 tecken.
      */
-        const numberInput = document.getElementById('number').value;
+        const numberInput = document.getElementById('phone').value;
     
         if (numberInput.length >=10 && numberInput.length <= 50) {
             document.getElementById('numberError').innerHTML = '';

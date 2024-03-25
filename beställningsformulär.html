@@ -93,13 +93,15 @@
     </div>
 
 <br>
-    <input type="submit" class="button form-control" value="Köp">
+    <!--<input type="submit" class="button form-control" value="Köp">-->
     <button id = "buyButton" type="button" class="button form-control">Köp</button>
 <br>
 </div>
 </form>
 
-<dialog id = "confirm"></dialog>
+<dialog id = "confirm">
+</dialog>
+<dialog id = "statusDialog" ></dialog>
 
 
 <script src = "functions.js"></script>
@@ -132,110 +134,70 @@
 
     const buyButton = document.getElementById("buyButton");
 
-// Function to open the dialog with form content
 function openDialog(namn, telefonNummer, e_post, address, postNum, ort) {
     const confirmDialog = document.getElementById("confirm");
     confirmDialog.innerHTML = 
-        `<form>
+        `<form style = " 
+            padding: 50px;
+            width: 500px;">
+            <h3 style="text-align: center;">Bekräftelse</h3>
             <p>
-                "Namn:  ${namn} <br>
-                Telefonnummer: ${telefonNummer} <br>
-                E-post: ${e_post} <br>
-                Address: ${address} <br>
-                Postnummer: ${postNum} <br>
-                Ort: ${ort} <br>
+                Namn:  ${namn} <br><hr>
+                Telefonnummer: ${telefonNummer} <br><hr>
+                E-post: ${e_post} <br><hr>
+                Address: ${address} <br><hr>
+                Postnummer: ${postNum} <br><hr>
+                Ort: ${ort} <br><hr>
+            <p/>
+            <img src = "${productImg}" style= "width: 150px; heigth: 150px; margin: auto;" class = "col-3" alt = "${productName}">
+            <p>
                 Produkt: ${productName} <br>
-                Summa: $${productPrice}"
+                Summa: $${productPrice}
             </p>
             <div>
                 <button type="button" id="confirmBtn">Bekräfta</button>
-                <button type="button" id="cancelBtn">Avbryta</button>
+                <button type="button" id="cancelBtn" style="background-color: blueviolet; width 100px">Avbryta</button>
             </div>
         </form>`;
 
-    // Adding event listeners to the buttons inside the dialog
     const confirmBtn = document.getElementById("confirmBtn");
     const cancelBtn = document.getElementById("cancelBtn");
-
+    
     confirmBtn.addEventListener("click", () => {
-        // Close the dialog if confirmed
-        confirmDialog.close();
-        // You can add your logic for what to do after confirmation here
+        
+        const status = document.getElementById("statusDialog");
+        confirmDialog.innerHTML = `
+        <form style ="width: 500px;">
+            <h3 style="text-align: center;">Bekräftelse</h3>   
+            <p>
+                Köpet är utförd        
+            </p>         
+            <div>
+                <button type = "button" id = "okBtn" style = "float: right">Ok</button>
+            </div>
+        </form>
+        `;
+        const okButton = document.getElementById("okBtn");
+        okButton.addEventListener("click", () => {
+            window.open("index.html");
+            confirmDialog.close();
+        });
     });
 
     cancelBtn.addEventListener("click", () => {
-        // Close the dialog if canceled
         confirmDialog.close();
-        // You can add your logic for what to do after cancellation here
+      
     });
 
-    // Open the dialog
+
     confirmDialog.showModal();        
 }
 
 buyButton.addEventListener("click", () => {
-    // Call the function to open the dialog with form content
+
     openDialog(namn.value, telefonNummer.value, e_post.value, address.value, postNum.value, ort.value);
 });
 
-
-    /*const buyButton = document.getElementById("buyButton");
-
-    function innehåll(namn, telefonNummer, e_post, address, postNum, ort) {
-        const confirmDialog = document.getElementById("confirm");
-        confirmDialog.innerHTML = 
-            `<form>
-                <p>
-                    "Namn:  ${namn}
-                    Telefonnummer: ${telefonNummer}
-                    E-post: ${e_post}
-                    Address: ${address}
-                    Postnummer: ${postNum}
-                    Ort: ${ort}
-                    Produkt: ${productName.value}
-                    Summa: $${productPrice.value}"
-                </p>
-            <div>
-                <button type = "button" id = "confirmButton">Bekräfta</button>
-                <button type = "button" id = "cancelButton">Avbryta</button>
-            </div>
-            </form>`;
-
-        const confirmButton = document.getElementById("confirmButton");
-        const cancelButton = document.getElementById("cancelButton");
-
-        confirmButton.addEventListener("click", () => {
-            confirmDialog.close();
-            window.search.href = "index.html";
-        });
-
-        cancelButton.addEventListener("click", () => {
-            confirmDialog.close();
-            window.search.href = "index.html";
-        });
-        
-        confirmDialog.showModal();
-    }
-    buyButton.addEventListener("click", () => {
-        innehåll(namn.value, telefonNummer.value, e_post.value, address.value, postNum.value, ort.value);      
-    });*/
-
-        /*if (confirm(
-            "Namn: " + namn + "\n" +
-            "Telefonnummer: " + telefonNummer +"\n" +
-            "E-post: " + e_post + "\n" +
-            "Address: "+ address + "\n" +
-            "Postnummer: " + postNum+ "\n" +
-            "Ort: "+ ort + "\n"+
-            "Produkt: " +productName+ "\n" +
-            "Summa: $" + productPrice
-        ))  {
-            alert("Success!");
-            window.location.href = "index.html"; 
-        } else {
-            alert("canceled");
-            window.location.href = "index.html";
-        };*/
 </script>
 
 </body>

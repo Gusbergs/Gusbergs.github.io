@@ -1,5 +1,5 @@
 
-const order = document.getElementById("Order");
+/*const order = document.getElementById("Order");
 order.addEventListener('click', sendProductJSON);
 
 function sendProductJSON() {
@@ -33,4 +33,4 @@ function itemSector() {
         <label>Product Name:</label> ${productName}<br>
         <label>Price:</label> ${productPrice}<br>
     `;
-}
+}*/

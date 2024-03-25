@@ -75,6 +75,7 @@
                     <label for="name">Namn</label>
                     <br>
                     <input type="text" id="name" placeholder="Förnamn Efternamn" required class="form-control">
+                    <span id="nameError" class="error-message"></span>
                 </div>
                 
                 <br>
@@ -83,6 +84,8 @@
                     <label for="phone">Telefonnummer</label>
                     <br>
                     <input type="tel" id="phone" placeholder="123 456 78 91" required class="form-control">
+                    <span id="numberError" class="error-message"></span>
+
                 </div>
                 
                 <br>
@@ -91,6 +94,8 @@
                     <label for="email">Email</label>
                     <br>
                     <input type="email" id="email" placeholder="namn@exempel.com" required class="form-control">
+                    <span id="emailError" class="error-message"></span>
+
                 </div>
 
                 <br>
@@ -99,6 +104,8 @@
                     <label for="address">Leveransadress</label>
                     <br>
                     <input type="text" id="address" placeholder="Gatuadress 1" required class="form-control">
+                    <span id="addressError" class="error-message"></span>
+
                 </div>
                 
                 <br>
@@ -107,6 +114,8 @@
                     <label for="zip">Postnummer</label>
                     <br>
                     <input type="text" id="zip" placeholder="12345" required class="form-control">
+                    <span id="zipError" class="error-message"></span>
+
                 </div>
                 
                 <br>
@@ -115,11 +124,13 @@
                     <label for="locality">Ort</label>
                     <br>
                     <input type="text" id="locality" placeholder="Stad" required class="form-control">
+                    <span id="localityError" class="error-message"></span>
+
                 </div>
                 
                 <br>
 
-                <input type="submit" class="button form-control" value="Skicka beställning">
+                <button type="submit" class="button form-control" onclick="checkFunc(event)">Skicka beställning</button>
             </form>
         </div>
         <div class="image-container">
@@ -154,5 +165,6 @@
             }
         });
     </script>
+       <script src="startbootstrap-shop-homepage-gh-pages/js/scripts.js"></script>
 </body>
 </html>

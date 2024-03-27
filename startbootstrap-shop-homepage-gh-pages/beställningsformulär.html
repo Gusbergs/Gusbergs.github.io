@@ -130,7 +130,7 @@
                 
                 <br>
 
-                <button type="submit" class="button form-control" onclick="checkFunc(event)">Skicka beställning</button>
+                <button type="submit" class="button form-control" id = "submit-button">Skicka beställning</button>
             </form>
         </div>
         <div class="image-container">
@@ -143,6 +143,7 @@
     </div>
 
     <script>
+       
         document.addEventListener('DOMContentLoaded', function() {
             const queryParams = new URLSearchParams(window.location.search);
             const productId = queryParams.get('productId');
@@ -160,11 +161,25 @@
 
                         const productTitle = document.getElementById('productTitle');
                         productTitle.textContent = `${product.title}`;
+                        console.log("IMG: " + product.image);
+                        transferBtn(product.title, product.price, product.image, productId);
                     })
                     .catch(error => console.log('Error fetching product details:', error));
             }
         });
+        function transferBtn(productName, productPrice, productImg, productId) {
+            //console.log("p name in bth:" + productName);
+            const submitBtn = document.getElementById("submit-button");
+            submitBtn.addEventListener("click", () => {
+                
+                checkFunc(event, productName, productPrice, productImg, productId);
+            });
+        }
+        
     </script>
        <script src="javaScript.js"></script>
+       <script>
+        
+       </script>
 </body>
 </html>

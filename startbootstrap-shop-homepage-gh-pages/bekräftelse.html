@@ -109,6 +109,8 @@
             border-style: hidden;
             font-weight: bold;
         }
+
+        
     </style>
     </head>
     <body style = "background-color: black; ">
@@ -126,7 +128,11 @@
         </nav>
 
         <!--<div><h2 style="text-align: center;">Bekräftelse</h2></div>-->
-        <div id = "bInfo" class = "infoSector"></div>
+        <div class="container">
+            <div class = "row">
+                <div id = "bInfo" class = "infoSector col-lg-6"></div>
+            </div>
+        </div>
 
 
         <script src="javaScript.js"></script>
@@ -141,12 +147,12 @@
             //console.log("product name: " + getProductTitle(queryParams));
             info.innerHTML = `
                 <h3 style="text-align: center; font-size: 50px; font-weight: bold;">Bekräftelse</h3>
-                <div style = "font-size: 20px; min-width: 100px;">
-                    <div class = "infoRow">Namn:<div class = "customerInfoText">${getName(queryParams)}</div></div><hr>
-                    <div class = "infoRow">Telefonnummer:  <div class = "customerInfoText">${getTNum(queryParams)}</div></div><hr>
-                    <div class = "infoRow">E-post: <div class = "customerInfoText">${getEmail(queryParams)}</div></div><hr>
-                    <div class = "infoRow">Address:<div class = "customerInfoText">${getAddress(queryParams)}</div></div><hr>
-                    <div class = "infoRow">Postnummer:<div class = "customerInfoText">${getPostNum(queryParams)}</div></div><hr>
+                <div style = "font-size: 20px; min-width: 100px;" >
+                    <div class = "infoRow">Namn:<div class = "customerInfoText ">${getName(queryParams)}</div></div><hr>
+                    <div class = "infoRow">Telefonnummer:  <div class = "customerInfoText ">${getTNum(queryParams)}</div></div><hr>
+                    <div class = "infoRow">E-post: <div class = "customerInfoText ">${getEmail(queryParams)}</div></div><hr>
+                    <div class = "infoRow">Address:<div class = "customerInfoText ">${getAddress(queryParams)}</div></div><hr>
+                    <div class = "infoRow">Postnummer:<div class = "customerInfoText ">${getPostNum(queryParams)}</div></div><hr>
                     <div class = "infoRow">Ort:<div class = "customerInfoText">${getLocal(queryParams)}</div></div><hr>
                 </div>
                 <div style = "text-align: center">
